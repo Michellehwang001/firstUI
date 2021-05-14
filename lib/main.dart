@@ -1,4 +1,6 @@
 import 'package:first_ui/provider/list_provider.dart';
+import 'package:first_ui/view/body_middle.dart';
+import 'package:first_ui/view/body_top.dart';
 import 'package:first_ui/widget/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -44,10 +46,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    // Widget List initialized
+    List<Widget> bodyList = [];
+
     ListProvider items = Provider.of<ListProvider>(context);
-    //listProvider.listItems;
     if (items.isDone == true) {
       listItems = items.listItems;
+
+      // Top 이미지부분
+      bodyList.add(BodyTop(listItems[3]));
+      // ListTile
+      listItems
+          .where((e) => e.id == 'dc523f0ed25c' || e.id == '7446d8dfd7dc')
+          .map((e) => bodyList.add(BodyMiddle(e)))
+          .toList();
+      //
     }
 
     return Scaffold(
@@ -55,53 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
         leading: Icon(Icons.apps_rounded),
         title: Text('Jet News'),
       ),
-      body: Column(
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20.0, 20.0, 8.0, 0),
-                child: Text(
-            'Top stories for you',
-            style: TextStyle(fontSize: 17),
-          ),
-              )),
-          Expanded(
-            child: ListView.separated(
-              padding: const EdgeInsets.all(8.0),
-              itemCount: listItems.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  //height: 50,
-                  child: Column(
-                    children: [
-                      // 총 4가지 list Type있음
-                      ListTile(
-                        title: Text(
-                          listItems[index].title,
-                          style: TextStyle(
-                              fontSize: 17, fontWeight: FontWeight.bold),
-                        ),
-                        leading:
-                            Image.network(listItems[index].publication.logoUrl),
-                        subtitle: Text(listItems[index].metadata.author.name +
-                            ' - ' +
-                            listItems[index]
-                                .metadata
-                                .readTimeMinutes
-                                .toString() +
-                            'min read'),
-                        trailing: Icon(Icons.bookmark_border),
-                      )
-                    ],
-                  ),
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) =>
-                  const Divider(),
-            ),
-          ),
-        ],
+      body: ListView(
+        padding: const EdgeInsets.all(8.0),
+        children: bodyList,
       ),
     );
   }
