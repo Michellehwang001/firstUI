@@ -19,6 +19,6 @@ void main() {
 
     Iterable l = json.decode(response.body);
     List<ListItem> listItems = List<ListItem>.from(l.map((item) => ListItem.fromJson(item)));
-    expect(listItems[0].id, 'dc523f0ed25c');
+    expect(listItems[0].publication.logoUrl, 'https://cdn-images-1.medium.com/max/258/1*u7oZc2_5mrkcFaxkXEyfYA@2x.png');
   });
 }
