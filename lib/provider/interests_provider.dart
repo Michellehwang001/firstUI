@@ -8,16 +8,20 @@ class InterestsProvider with ChangeNotifier {
   List<ModelList> _topicLists = [];
   List<ModelList> _peopleLists= [];
   List<ModelList> _publicationsList= [];
+  bool _readData = false;
 
+
+  bool get readData => _readData;
   List<ModelList> get topicLists => _topicLists;
   List<ModelList> get peopleLists => _peopleLists;
   List<ModelList> get publicationsList => _publicationsList;
 
-  void fetchData() {
+  void fetchData(names) {
     _topicLists = makeTopics();
-    _peopleLists = makePeople();
+    _peopleLists = makePeople(names);
     _publicationsList = makePublications();
 
+    _readData = true;
     notifyListeners();
   }
 
@@ -40,9 +44,14 @@ class InterestsProvider with ChangeNotifier {
   }
 
   // people 리스트 목록 아이템 만들기
-  List<ModelList> makePeople() {
+  List<ModelList> makePeople(List<String> names) {
     List<ModelList> _lists = [];
-    _lists.add(ModelList('people', 'Pixel'));
+
+    // for(String name in names) {
+    //   ModelList _list = ModelList('people', _title)
+    //   _lists.add();
+    // }
+    names.map((e) => _lists.add(ModelList('People', e))).toList();
 
     return _lists;
   }

@@ -47,16 +47,17 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Provider.of<ListProvider>(context, listen: false).fetchData();
-    Provider.of<InterestsProvider>(context, listen: false).fetchData();
   }
 
   @override
   Widget build(BuildContext context) {
     // Widget List initialized
     List<Widget> bodyList = [];
-
+    // provider get data
     ListProvider items = Provider.of<ListProvider>(context);
+
     if (items.isDone == true) {
+      // Json 데이터로 listItems
       listItems = items.listItems;
 
       // Top 이미지부분

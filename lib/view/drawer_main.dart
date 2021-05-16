@@ -1,5 +1,7 @@
 import 'package:first_ui/main.dart';
+import 'package:first_ui/provider/list_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'interests/interests.dart';
 
@@ -11,8 +13,13 @@ class DrawerMain extends StatefulWidget {
 }
 
 class _DrawerMainState extends State<DrawerMain> {
+  List<String> names = [];
+
   @override
   Widget build(BuildContext context) {
+    ListProvider items = Provider.of<ListProvider>(context);
+    items.listItems.map((e) => names.add(e.metadata.author.name)).toList();
+
     return Drawer(
       child: ListView(
         padding: const EdgeInsets.all(20.0),
@@ -43,7 +50,7 @@ class _DrawerMainState extends State<DrawerMain> {
             title: Text('Interests', style: TextStyle(fontSize: 20),),
             onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Interests())
+                    MaterialPageRoute(builder: (context) => Interests(names))
                 );
             },
           ),
