@@ -1,10 +1,16 @@
+import 'package:first_ui/main.dart';
 import 'package:flutter/material.dart';
 
 import 'interests/interests.dart';
 
-class DrawerMain extends StatelessWidget {
+class DrawerMain extends StatefulWidget {
   const DrawerMain({Key key, ListView child}) : super(key: key);
 
+  @override
+  _DrawerMainState createState() => _DrawerMainState();
+}
+
+class _DrawerMainState extends State<DrawerMain> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -21,22 +27,24 @@ class DrawerMain extends StatelessWidget {
                   Text('Jetnews', style: TextStyle(fontSize: 23, ),),
                 ],
               ),
-              decoration: BoxDecoration(
-              ),
             ),
           ),
           ListTile(
             leading: Icon(Icons.home, color: Color(0xFFd0203a)),
             title: Text('Home', style: TextStyle(fontSize: 20),),
-            onTap: () {},
+            onTap: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => MyHomePage())
+                );
+            },
           ),
           ListTile(
             leading: Icon(Icons.list_alt_sharp, color: Color(0xFFd0203a)),
             title: Text('Interests', style: TextStyle(fontSize: 20),),
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Interests())
-              );
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Interests())
+                );
             },
           ),
         ],

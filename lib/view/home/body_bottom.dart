@@ -7,7 +7,6 @@ class BodyBottom extends StatefulWidget {
 
   BodyBottom(this._item);
 
-  //print('---> '+_item.id);
   @override
   _BodyBottomState createState() => _BodyBottomState(_item);
 }

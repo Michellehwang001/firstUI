@@ -1,3 +1,7 @@
+import 'package:first_ui/view/drawer_main.dart';
+import 'package:first_ui/view/interests/people.dart';
+import 'package:first_ui/view/interests/publications.dart';
+import 'package:first_ui/view/interests/topics.dart';
 import 'package:flutter/material.dart';
 
 class Interests extends StatelessWidget {
@@ -20,11 +24,12 @@ class Interests extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
+              Topics(),
+              People(),
+              Publications(),
             ],
           ),
+          drawer: DrawerMain(),
         ),
     );
   }

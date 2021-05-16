@@ -1,10 +1,10 @@
+import 'package:first_ui/provider/interests_provider.dart';
 import 'package:first_ui/provider/list_provider.dart';
 import 'package:first_ui/view/drawer_main.dart';
 import 'package:first_ui/view/home/body_bottom.dart';
 import 'package:first_ui/view/home/body_middle.dart';
 import 'package:first_ui/view/home/body_slider.dart';
 import 'package:first_ui/view/home/body_top.dart';
-import 'package:first_ui/view/interests/interests.dart';
 import 'package:first_ui/widget/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ListProvider()),
+        ChangeNotifierProvider(create: (_) => InterestsProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -46,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Provider.of<ListProvider>(context, listen: false).fetchData();
+    Provider.of<InterestsProvider>(context, listen: false).fetchData();
   }
 
   @override
@@ -75,7 +77,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        //leading: Icon(Icons.apps_rounded),
         title: Text('Jet News'),
       ),
       body: ListView(
