@@ -1,8 +1,10 @@
 import 'package:first_ui/provider/list_provider.dart';
-import 'package:first_ui/view/body_bottom.dart';
-import 'package:first_ui/view/body_middle.dart';
-import 'package:first_ui/view/body_slider.dart';
-import 'package:first_ui/view/body_top.dart';
+import 'package:first_ui/view/drawer_main.dart';
+import 'package:first_ui/view/home/body_bottom.dart';
+import 'package:first_ui/view/home/body_middle.dart';
+import 'package:first_ui/view/home/body_slider.dart';
+import 'package:first_ui/view/home/body_top.dart';
+import 'package:first_ui/view/interests/interests.dart';
 import 'package:first_ui/widget/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -73,13 +75,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.apps_rounded),
+        //leading: Icon(Icons.apps_rounded),
         title: Text('Jet News'),
       ),
       body: ListView(
         padding: const EdgeInsets.all(8.0),
         children: bodyList,
       ),
+      drawer: DrawerMain(),
     );
   }
 }

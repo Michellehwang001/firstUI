@@ -12,15 +12,14 @@ class BodySlider extends StatelessWidget {
     ListProvider items = Provider.of<ListProvider>(context);
 
     return CarouselSlider(
-      items: items.listItems.map((e) => MakeCardSlider(e, context)).toList(),
-      options: CarouselOptions(
-        aspectRatio: 2.0,
-        enlargeCenterPage: true,
-        enableInfiniteScroll: true,
-        initialPage: 2,
-        autoPlay: true,
-        height: 413,
-      ),
+        items: items.listItems.map((e) => MakeCardSlider(e, context)).toList(),
+        options: CarouselOptions(
+          aspectRatio: 1.0,
+          enlargeCenterPage: true,
+          enableInfiniteScroll: true,
+          initialPage: 2,
+          autoPlay: true,
+        ),
     );
   }
 
@@ -28,6 +27,7 @@ class BodySlider extends StatelessWidget {
     // Slider title
     String _title = '';
 
+    // 타이틀 글자수에 따라 ... 붙이기.
     if (item.title.length > 40) {
       _title = '${item.title.substring(0, 40)}..';
     } else {
