@@ -1,11 +1,11 @@
 # first_ui
 
 UI test
-<img src="./images/main.png" width="150" height="400">
-<img src="./images/drawer.png" width="150" height="400">
-<img src="./images/people.png" width="150" height="400">
-<img src="./images/publications.png" width="150" height="400">
-<img src="./images/topic.png" width="150" height="400">
+<img src="./images/main.png" width="200" height="400">
+<img src="./images/drawer.png" width="200" height="400">
+<img src="./images/people.png" width="200" height="400">
+<img src="./images/publications.png" width="200" height="400">
+<img src="./images/topic.png" width="200" height="400">
 ## Getting Started
 
 This project is a starting point for a Flutter application.
