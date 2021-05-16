@@ -1,7 +1,11 @@
 # first_ui
 
 UI test
-
+![Main페이지](images/main.png)
+![drawer](images/drawer.png)
+![people](images/people.png)
+![topic](images/topic.png)
+![publications](images/publications.png)
 ## Getting Started
 
 This project is a starting point for a Flutter application.
