@@ -1,5 +1,7 @@
 import 'package:first_ui/provider/list_provider.dart';
+import 'package:first_ui/view/body_bottom.dart';
 import 'package:first_ui/view/body_middle.dart';
+import 'package:first_ui/view/body_slider.dart';
 import 'package:first_ui/view/body_top.dart';
 import 'package:first_ui/widget/list_item.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +62,13 @@ class _MyHomePageState extends State<MyHomePage> {
           .where((e) => e.id == 'dc523f0ed25c' || e.id == '7446d8dfd7dc')
           .map((e) => bodyList.add(BodyMiddle(e)))
           .toList();
-      //
+      // Carousel Slider
+      bodyList.add(BodySlider());
+      // Last ListTile
+      listItems
+          .where((e) => e.id == 'ac552dcc1741' || e.id == '84eb677660d9' || e.id == '55db18283aca')
+          .map((e) => bodyList.add(BodyBottom(e)))
+          .toList();
     }
 
     return Scaffold(

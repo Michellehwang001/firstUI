@@ -1,33 +1,38 @@
 import 'package:first_ui/widget/list_item.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 // ignore: must_be_immutable
-class BodyMiddle extends StatefulWidget {
+class BodyBottom extends StatefulWidget {
   ListItem _item;
 
-  BodyMiddle(this._item);
+  BodyBottom(this._item);
 
   //print('---> '+_item.id);
   @override
-  _BodyMiddleState createState() => _BodyMiddleState(_item);
+  _BodyBottomState createState() => _BodyBottomState(_item);
 }
 
-class _BodyMiddleState extends State<BodyMiddle> {
+class _BodyBottomState extends State<BodyBottom> {
   ListItem _item;
 
-  _BodyMiddleState(this._item);
+  _BodyBottomState(this._item);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 10, 8, 0),
+          child: Text('BASED ON YOUR HISTORY',
+              style: TextStyle(color: Color(0xFF808588))),
+        ),
         ListTile(
-          title: Text(_item.title),
           leading: Image.network(_item.publication.logoUrl),
+          title: Text(_item.title),
           subtitle: Text(
               '${_item.metadata.author.name} - ${_item.metadata.readTimeMinutes}min read'),
-          trailing: Icon(Icons.bookmark_border),
+          isThreeLine: true,
+          trailing: Icon(Icons.more_vert),
         ),
         Divider(),
       ],
