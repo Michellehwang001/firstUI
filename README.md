@@ -1,11 +1,12 @@
 # first_ui
 
 UI test
-![Main페이지](images/main.png){: width="200"}
-![drawer](images/drawer.png){: width="200"}
-![people](images/people.png){: width="200"}
-![topic](images/topic.png){: width="200"}
-![publications](images/publications.png){: width="200"}
+![title](/images/main.png){: width="100" height="300"}
+![Main페이지](images/main.png){: width="150" height="400"}
+![drawer](images/drawer.png){: width="150" height="400"}
+![people](images/people.png){: width="150" height="400"}
+![topic](images/topic.png){: width="150" height="400"}
+![publications](images/publications.png){: width="150" height="400"}
 ## Getting Started
 
 This project is a starting point for a Flutter application.
